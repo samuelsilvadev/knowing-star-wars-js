@@ -1,5 +1,8 @@
 
 
+let urlPessoas = "http://swapi.co/api/people/";
+
+
 function fazRequestGet(url, callback){
 	var req = new XMLHttpRequest();
 	req.open("GET", url, true);
@@ -16,11 +19,12 @@ function fazRequestGet(url, callback){
 }
 
 
-
-	fazRequestGet("http://swapi.co/api/peopl/", function(conteudo, error){
+(function getTodosPersonagens(){
+	fazRequestGet(urlPessoas, function(conteudo, error){
 		if(error != null)
 			console.log("ERRO " + error)
 		else
 			console.log(conteudo);
 	});
+})();
 
