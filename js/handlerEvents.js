@@ -15,7 +15,7 @@ document.querySelector("#frmBuscaPersonagem").addEventListener("submit", functio
 			document.querySelector("#resultados").textContent = "";
 			if(resultadosFiltrados.length > 0){
 				resultadosFiltrados.forEach(function(item){
-					document.querySelector("#resultados").innerHTML += item.name + "<br>";
+					document.querySelector("#resultados").innerHTML += "<p>" + item.name + "</p>";
 				});			
 			}
 		}
