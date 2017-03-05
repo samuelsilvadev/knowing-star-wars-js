@@ -1,4 +1,10 @@
 
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+*{
+	font-family: 'Josefin Sans', sans-serif;
+}
+
 .buscaPersonagem{
 	width: 100%;
 	min-height: 500px;
@@ -25,4 +31,7 @@ input[type="text"]{
 	position: relative;
 	top: 100px;
 	left: 20px;
+
+	font-size: 18px;
+	color: #fff;
 }
