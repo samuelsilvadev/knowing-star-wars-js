@@ -19,9 +19,8 @@ function fazRequestGet(url, callback){
 function getTodosPersonagens(){
 	fazRequestGet(urlPessoas, function(conteudo, error){
 		if(error != null)
-			console.log("ERRO " + error)
+			console.log("ERRO " + error);
 		else
 			return conteudo;
 	});
 };
-
