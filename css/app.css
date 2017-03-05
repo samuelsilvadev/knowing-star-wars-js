@@ -5,11 +5,23 @@
 	font-family: 'Josefin Sans', sans-serif;
 }
 
+h1{
+	font-size: 2em;
+}
+
 .buscaPersonagem{
 	width: 100%;
 	min-height: 500px;
 	background-color: #8A2BE2;
 	overflow: hidden;
+}
+
+.buscaPersonagem > h1{
+	position: relative;
+    top: 30px;
+    left: 20px;
+
+	color: #fff;
 }
 
 .buscaPersonagem > form{
@@ -32,6 +44,6 @@ input[type="text"]{
 	top: 100px;
 	left: 20px;
 
-	font-size: 18px;
+	font-size: 1em;
 	color: #fff;
 }
