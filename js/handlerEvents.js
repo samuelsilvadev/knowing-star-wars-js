@@ -8,9 +8,9 @@ document.querySelector("#frmBuscaPersonagem").addEventListener("submit", functio
 			console.log("ERRO " + error);
 		else{
 			let retorno = JSON.parse(conteudo);
-			let resultadosFiltrados = retorno.results.filter(function(obj){
-				return obj.name.indexOf(busca) > -1;
-			});
+			let resultadosFiltrados = retorno.results.filter((obj) =>
+				obj.name.indexOf(busca) > -1
+			);
 			console.log(resultadosFiltrados);
 			document.querySelector("#resultados").textContent = "";
 			if(resultadosFiltrados.length > 0){
