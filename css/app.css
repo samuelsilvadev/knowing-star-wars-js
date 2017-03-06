@@ -48,7 +48,13 @@ input[type="text"]{
 	color: #fff;
 }
 
+#resultados p{
+	transition: all 0.5s linear;
+	-webkit-transition: all 0.5s linear;	
+}
+
 #resultados p:hover{
 	cursor: pointer;
 	font-size: 2em;
+	color:#000;
 }
