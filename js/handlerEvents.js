@@ -11,13 +11,21 @@ document.querySelector("#frmBuscaPersonagem").addEventListener("submit", functio
 			let resultadosFiltrados = retorno.results.filter((obj) =>
 				obj.name.indexOf(busca) > -1
 			);
-			console.log(resultadosFiltrados);
 			document.querySelector("#resultados").textContent = "";
 			if(resultadosFiltrados.length > 0){
 				resultadosFiltrados.forEach(function(item){
 					document.querySelector("#resultados").innerHTML += "<p>" + item.name + "</p>";
-				});			
+				});	
+				addEventosNosResultados();		
 			}
 		}
 	});	
 });
+
+
+function addEventosNosResultados(){
+	console.log(document.querySelectorAll("#resultados p"));
+	/*.addEventListener("click",function(e){
+		console.log(e);
+	});*/
+}
