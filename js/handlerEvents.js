@@ -24,8 +24,5 @@ document.querySelector("#frmBuscaPersonagem").addEventListener("submit", functio
 
 
 function addEventosNosResultados(){
-	console.log(document.querySelectorAll("#resultados p"));
-	/*.addEventListener("click",function(e){
-		console.log(e);
-	});*/
+	document.querySelectorAll("#resultados p").forEach((p) => p.addEventListener("click", (e) => console.log(e.target.outerText)));	
 }
