@@ -11,9 +11,12 @@ h1{
 
 .buscaPersonagem{
 	width: 100%;
-	min-height: 500px;
-	background-color: #8A2BE2;
+	height: 100vh;
 	overflow: hidden;
+
+	background-color: #8A2BE2;
+	background-attachment: fixed;
+	background-size: cover;
 }
 
 .buscaPersonagem > h1{
