@@ -16,13 +16,22 @@ document.querySelector("#frmBuscaPersonagem").addEventListener("submit", functio
 				resultadosFiltrados.forEach(function(item){
 					document.querySelector("#resultados").innerHTML += "<p>" + item.name + "</p>";
 				});	
-				addEventosNosResultados();		
+				addEventosNosResultados(resultadosFiltrados);	
 			}
 		}
 	});	
 });
 
 
-function addEventosNosResultados(){
-	document.querySelectorAll("#resultados p").forEach((p) => p.addEventListener("click", (e) => console.log(e.target.outerText)));	
+function addEventosNosResultados(resultadosFiltrados){
+	document.querySelectorAll("#resultados p").forEach(
+		(p) => p.addEventListener("click", 
+			(e) => {
+				console.log(e.target.outerText);
+				let personagem = resultadosFiltrados.filter((personagemKey) => {
+					return personagemKey.name === e.target.outerText;
+				});
+				console.log(personagem);
+			})
+		);
 }
