@@ -9,3 +9,7 @@ function addTextInElement(element, text){
 	element.appendChild(newContent);
 	return element;
 }
+
+function log(mensagem){
+	console.log(mensagem);
+}
