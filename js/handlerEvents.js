@@ -37,11 +37,21 @@ function addEventosNosResultados(resultadosFiltrados){
 
 function montaDetalhesPersonagem(personagem){
 	let blocoDescricaoPersonagem = document.querySelector(".descricaoPersonagem");
-	log(personagem);
+	
 	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement("span"), "Nome"));
 	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement("span"), personagem.name));
+	blocoDescricaoPersonagem.appendChild(addElement("br"));
+
+	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement("span"), "Data de Nascimento"));
+	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement("span"), personagem.birth_year));
+	blocoDescricaoPersonagem.appendChild(addElement("br"));
 	
-	personagem.birth_year;
-	personagem.mass;
-	personagem.height;
+	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement("span"), "Peso"));
+	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement("span"), personagem.mass));
+	blocoDescricaoPersonagem.appendChild(addElement("br"));
+
+	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement("span"), "Altura"));
+	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement("span"), personagem.height));
+	blocoDescricaoPersonagem.appendChild(addElement("br"));
+
 };
