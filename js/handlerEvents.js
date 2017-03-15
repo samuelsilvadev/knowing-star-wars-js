@@ -36,12 +36,12 @@ function addEventosNosResultados(resultadosFiltrados){
 };
 
 function montaDetalhesPersonagem(personagem){
+	let newPersonagem = personagem[0];
 	let blocoDescricaoPersonagem = document.querySelector(".descricaoPersonagem");
+	log(personagem);
+	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement("span"), "Nome"));
+	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement("span"), newPersonagem.name));
 	
-	let nome = addElement("span");
-	blocoDescricaoPersonagem.appendChild(addTextInElement(nome, "Nome"));
-	
-	personagem.name;
 	personagem.birth_year;
 	personagem.mass;
 	personagem.height;
