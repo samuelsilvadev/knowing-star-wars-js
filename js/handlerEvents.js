@@ -30,12 +30,19 @@ function addEventosNosResultados(resultadosFiltrados){
 				let personagem = resultadosFiltrados.filter((personagemKey) => {
 					return personagemKey.name === e.target.outerText;
 				});
-				console.log(personagem);			
+				montaDetalhesPersonagem(personagem);			
 			})
 		);
 };
 
 function montaDetalhesPersonagem(personagem){
-	let blocoDescricaoPersonagem = document.querySelectorAll(".descricaoPersonagem");
-
+	let blocoDescricaoPersonagem = document.querySelector(".descricaoPersonagem");
+	
+	let nome = addElement("span");
+	blocoDescricaoPersonagem.appendChild(addTextInElement(nome, "Nome"));
+	
+	personagem.name;
+	personagem.birth_year;
+	personagem.mass;
+	personagem.height;
 };
