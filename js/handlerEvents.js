@@ -30,17 +30,16 @@ function addEventosNosResultados(resultadosFiltrados){
 				let personagem = resultadosFiltrados.filter((personagemKey) => {
 					return personagemKey.name === e.target.outerText;
 				});
-				montaDetalhesPersonagem(personagem);			
+				montaDetalhesPersonagem(personagem[0]);			
 			})
 		);
 };
 
 function montaDetalhesPersonagem(personagem){
-	let newPersonagem = personagem[0];
 	let blocoDescricaoPersonagem = document.querySelector(".descricaoPersonagem");
 	log(personagem);
 	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement("span"), "Nome"));
-	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement("span"), newPersonagem.name));
+	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement("span"), personagem.name));
 	
 	personagem.birth_year;
 	personagem.mass;
