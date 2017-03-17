@@ -36,16 +36,14 @@ function addEventosNosResultados(resultadosFiltrados){
 };
 
 function montaDetalhesPersonagem(personagem){
-	let blocoDescricaoPersonagem = document.querySelector(".descricaoPersonagem");
-	
 	criaElementosDosDetalhes("span", "Nome", "span", personagem.name);
 	criaElementosDosDetalhes("span", "Data de Nascimento", "span", personagem.birth_year);
 	criaElementosDosDetalhes("span", "Peso", "span", personagem.mass);
 	criaElementosDosDetalhes("span", "Altura", "span", personagem.height);
-
 };
 
 function criaElementosDosDetalhes(el1, text1, el2, text2){
+	let blocoDescricaoPersonagem = document.querySelector(".descricaoPersonagem");
 	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement(el1), text1));
 	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement(el2), text2));
 	blocoDescricaoPersonagem.appendChild(addElement("br"));
