@@ -38,20 +38,15 @@ function addEventosNosResultados(resultadosFiltrados){
 function montaDetalhesPersonagem(personagem){
 	let blocoDescricaoPersonagem = document.querySelector(".descricaoPersonagem");
 	
-	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement("span"), "Nome"));
-	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement("span"), personagem.name));
-	blocoDescricaoPersonagem.appendChild(addElement("br"));
+	criaElementosDosDetalhes("span", "Nome", "span", personagem.name);
+	criaElementosDosDetalhes("span", "Data de Nascimento", "span", personagem.birth_year);
+	criaElementosDosDetalhes("span", "Peso", "span", personagem.mass);
+	criaElementosDosDetalhes("span", "Altura", "span", personagem.height);
 
-	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement("span"), "Data de Nascimento"));
-	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement("span"), personagem.birth_year));
-	blocoDescricaoPersonagem.appendChild(addElement("br"));
-	
-	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement("span"), "Peso"));
-	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement("span"), personagem.mass));
-	blocoDescricaoPersonagem.appendChild(addElement("br"));
+};
 
-	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement("span"), "Altura"));
-	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement("span"), personagem.height));
+function criaElementosDosDetalhes(el1, text1, el2, text2){
+	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement(el1), text1));
+	blocoDescricaoPersonagem.appendChild(addTextInElement(addElement(el2), text2));
 	blocoDescricaoPersonagem.appendChild(addElement("br"));
-
 };
