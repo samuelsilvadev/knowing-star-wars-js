@@ -1,5 +1,7 @@
 
 let urlPessoas = "http://swapi.co/api/people/";
+let keyFlickir = "85cbbaacf76f1a89b73310aac077de09";
+let utlImagens = "http://api.flickr.com/services/rest/?&method=flickr.people.getPublicPhotos&api_key="+keyFlickir+"&user_id=153162937@N06&per_page=12&page=4&format=json&jsoncallback=?"
 
 function fazRequestGet(url, callback){
 	var req = new XMLHttpRequest();
