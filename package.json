@@ -1,7 +1,7 @@
 {
   "name": "knowing-star-wars-js",
   "version": "1.0.0",
-  "description": "",
+  "description": "The app will search characters of the movie of the star wars",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
