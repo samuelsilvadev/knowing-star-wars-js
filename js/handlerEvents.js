@@ -15,22 +15,24 @@ document.querySelector("#frmBuscaPersonagem").addEventListener("submit", functio
 			if(resultadosFiltrados.length > 0){
 				resultadosFiltrados.forEach(function(item){
 					document.querySelector("#resultados").innerHTML += "<p>" + item.name + "</p>";
-				});	
-				addEventosNosResultados(resultadosFiltrados);	
+				});
+				addEventosNosResultados(resultadosFiltrados);
 			}
 		}
-	});	
+	});
 });
 
-
+/*
+	Função irá adicionar eventos nos resultados para poder mostrar os detalhes de cada personagem
+*/
 function addEventosNosResultados(resultadosFiltrados){
 	document.querySelectorAll("#resultados p").forEach(
-		(p) => p.addEventListener("click", 
+		(p) => p.addEventListener("click",
 			(e) => {
 				let personagem = resultadosFiltrados.filter((personagemKey) => {
 					return personagemKey.name === e.target.outerText;
 				});
-				montaDetalhesPersonagem(personagem[0]);			
+				montaDetalhesPersonagem(personagem[0]);
 			})
 		);
 };
@@ -50,4 +52,3 @@ function montaDetalhesPersonagem(personagem){
 	};
 
 };
-
