@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/samuelsilvadev/knowing-star-wars-js#readme",
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "flickrapi": "^0.6.0",
     "font-awesome": "^4.7.0"
   }
