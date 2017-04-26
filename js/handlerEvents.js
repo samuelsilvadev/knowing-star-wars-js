@@ -58,7 +58,14 @@ function montaTabelaDetalhesPersonagem(personagem){
 	let tabela = document.querySelector(".descricaoPersonagem table tbody");
 	console.log(tabela);
 	const newTr = tabela.appendChild(addElement("tr"));
-	newTr.appendChild(addElement("td"));
-	newTr.appendChild(addElement("td"));
-	newTr.appendChild(addElement("td"));
+	const td1 = newTr.appendChild(addElement("th"));
+	addTextInElement(td1, "1");
+	//td1.setAttributeNode(document.createAttribute("scope").value = "row");
+
+	const td2 = newTr.appendChild(addElement("td"));
+	addTextInElement(td2, "Nome");
+
+	const td3 = newTr.appendChild(addElement("td"));
+	addTextInElement(td3, personagem.name);
+
 }
