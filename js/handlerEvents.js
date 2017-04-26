@@ -32,6 +32,7 @@ function addEventosNosResultados(resultadosFiltrados){
 				let personagem = resultadosFiltrados.filter((personagemKey) => {
 					return personagemKey.name === e.target.outerText;
 				});
+				montaTabelaDetalhesPersonagem(personagem[0]);
 				montaDetalhesPersonagem(personagem[0]);
 			})
 		);
@@ -52,3 +53,12 @@ function montaDetalhesPersonagem(personagem){
 	};
 
 };
+
+function montaTabelaDetalhesPersonagem(personagem){
+	let tabela = document.querySelector(".descricaoPersonagem table tbody");
+	console.log(tabela);
+	const newTr = tabela.appendChild(addElement("tr"));
+	newTr.appendChild(addElement("td"));
+	newTr.appendChild(addElement("td"));
+	newTr.appendChild(addElement("td"));
+}
