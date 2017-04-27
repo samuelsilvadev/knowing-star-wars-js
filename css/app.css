@@ -74,6 +74,10 @@ input[type="text"]{
 	left: 20px;
 }
 
+.descricaoPersonagem > table{
+	display: none;
+}
+
 .btn-search{
 	position: relative;
     right: 5px;
