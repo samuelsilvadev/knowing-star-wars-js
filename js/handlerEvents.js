@@ -57,16 +57,17 @@ function montaDetalhesPersonagem(personagem){
 function montaTabelaDetalhesPersonagem(personagem){
 	let tabela = document.querySelector(".descricaoPersonagem table tbody");
 	tabela.innerHTML = "";
+	
 	const textosDosElementos = ["Nome", "Data de Nascimento", "Peso", "Altura"];
 	const valorDosElementos  = [personagem.name, personagem.birth_year, personagem.mass, personagem.height];
 
 	textosDosElementos.forEach((element, index) => {
-		log(element);
-		log(index);
+		
 		let newTr = tabela.appendChild(addElement("tr"));
-		let td1 = newTr.appendChild(addElement("th"));
-		addTextInElement(td1, "1");
-		//td1.setAttributeNode(document.createAttribute("scope").value = "row");
+		
+		let th1 = newTr.appendChild(addElement("th"));
+		addTextInElement(th1, index);
+		//th1.innerHTML += "row=1";
 
 		let td2 = newTr.appendChild(addElement("td"));
 		addTextInElement(td2, element);
