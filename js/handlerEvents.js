@@ -33,7 +33,7 @@ function addEventosNosResultados(resultadosFiltrados){
 					return personagemKey.name === e.target.outerText;
 				});
 				montaTabelaDetalhesPersonagem(personagem[0]);
-				montaDetalhesPersonagem(personagem[0]);
+				//montaDetalhesPersonagem(personagem[0]);
 			})
 		);
 };
@@ -56,7 +56,7 @@ function montaDetalhesPersonagem(personagem){
 
 function montaTabelaDetalhesPersonagem(personagem){
 	let tabela = document.querySelector(".descricaoPersonagem table tbody");
-	
+	tabela.innerHTML = "";
 	const textosDosElementos = ["Nome", "Data de Nascimento", "Peso", "Altura"];
 	const valorDosElementos  = [personagem.name, personagem.birth_year, personagem.mass, personagem.height];
 
