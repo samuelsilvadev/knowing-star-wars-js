@@ -55,9 +55,10 @@ function montaDetalhesPersonagem(personagem){
 };
 
 function montaTabelaDetalhesPersonagem(personagem){
+	document.querySelector(".descricaoPersonagem table").style.display = "table";
+	
 	let tabela = document.querySelector(".descricaoPersonagem table tbody");
 	tabela.innerHTML = "";
-	tabela.style.display = "block";
 	
 	const textosDosElementos = ["Nome", "Data de Nascimento", "Peso", "Altura"];
 	const valorDosElementos  = [personagem.name, personagem.birth_year, personagem.mass, personagem.height];
