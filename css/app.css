@@ -71,7 +71,7 @@ input[type="text"]{
 .descricaoPersonagem{
 	position: relative;
 	top: 150px;
-	left: 20px;
+	
 }
 
 .descricaoPersonagem > table{

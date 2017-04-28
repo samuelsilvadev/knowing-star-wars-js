@@ -55,8 +55,9 @@ function montaDetalhesPersonagem(personagem){
 };
 
 function montaTabelaDetalhesPersonagem(personagem){
+
 	document.querySelector(".descricaoPersonagem table").style.display = "table";
-	
+
 	let tabela = document.querySelector(".descricaoPersonagem table tbody");
 	tabela.innerHTML = "";
 	
@@ -78,6 +79,5 @@ function montaTabelaDetalhesPersonagem(personagem){
 		addTextInElement(td3, valorDosElementos[index]);
 
 	});
-
-	log(tabela);
+	
 }
