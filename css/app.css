@@ -76,6 +76,11 @@ input[type="text"]{
 
 .descricaoPersonagem > table{
 	display: none;
+	color: #fff;
+}
+
+.descricaoPersonagem > table tr:focus{
+	color: #000;
 }
 
 .btn-search{
