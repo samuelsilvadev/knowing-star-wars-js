@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-		<title></title>
+		<title>Learning about star wars characters</title>
 		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="Description" content="Curiosity and a lot of information about your preferred characters from Star Wars" />
+		<meta name="Keywords" content="Star wars, curiosity, geek" />
 		<link rel="stylesheet" type="text/css" href="css/reset.css" />
 		<link rel="stylesheet" type="text/css" href="css/app.css" />
 		<link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.min.css" />
@@ -11,11 +15,13 @@
 	<body>
 		<main>
 			<section class="characters-wrapper container">
-				<h1 class="characters-wrapper__title">Pesquise um personagem</h1>
+				<h1 class="characters-wrapper__title">Search a character</h1>
 				<form class="characters-form" autocomplete="off" data-js="characters-form">
-					<input id="txtPersonagem" class="characters-form__search-input" type="text" />
-					<button class="characters-form__search-button">
+					<label for="characters-field" class="characters-form__search-label--hidden">Character's name</label>
+					<input id="characters-field" class="characters-form__search-input" type="text" aria-label="Search Character's name"/>
+					<button type="submit" class="characters-form__search-button">
 						<i class="fa fa-search" aria-hidden="true"></i>
+						Search
 					</button>
 				</form>
 				<div class="wrapper-results">
@@ -35,8 +41,8 @@
 				</div>
 			</section>
 		</main>
-		<script src="js/utils.js"></script>
-		<script src="js/app.js"></script>
-		<script src="js/handlerEvents.js"></script>
+		<script src="js/utils.js" defer></script>
+		<script src="js/app.js" defer></script>
+		<script src="js/handlerEvents.js" defer></script>
 	</body>
 </html>

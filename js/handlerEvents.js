@@ -70,7 +70,7 @@ function montaTabelaDetalhesPersonagem(personagem) {
 	const tabela = document.querySelector('[data-js="table-details-characters"] tbody');
 	tabela.innerHTML = '';
 
-	const textosDosElementos = ['Nome', 'Data de Nascimento', 'Peso', 'Altura'];
+	const textosDosElementos = ['Name', 'Birthday', 'Weight', 'Heigth'];
 	const valorDosElementos = [
 		personagem.name,
 		personagem.birth_year,
