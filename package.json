@@ -4,6 +4,7 @@
   "description": "The app will search characters of the movie of the star wars",
   "main": "index.js",
   "scripts": {
+	"start": "./node_modules/.bin/http-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,5 +20,8 @@
   "dependencies": {
     "bootstrap": "^4.1.3",
     "font-awesome": "^4.7.0"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1"
   }
 }
