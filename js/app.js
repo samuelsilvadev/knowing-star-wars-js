@@ -1,28 +1,19 @@
 'use strict';
 
-const urlPessoas = 'http://swapi.co/api/people/';
+const ENDPOINT_PERSON = 'http://swapi.co/api/people/';
 
-function fazRequestGet(url, callback) {
+function get(url, callback) {
 	var req = new XMLHttpRequest();
 	req.open('GET', url, true);
 	req.addEventListener('load', function() {
 		if (req.status < 400) {
 			callback(req.responseText);
 		} else {
-			callback(null, new Error('Requisição falhou: ' + req.statusText));
+			callback(null, new Error('Request failed: ' + req.statusText));
 		}
 	});
 	req.addEventListener('error', function() {
-		callback(null, new Error('Erro na Rede'));
+		callback(null, new Error('Network error'));
 	});
 	req.send(null);
-}
-
-function getTodosPersonagens() {
-	fazRequestGet(urlPessoas, function(conteudo, error) {
-		if (error != null) {
-			return console.log('ERRO ' + error);
-		}
-		return conteudo;
-	});
 }

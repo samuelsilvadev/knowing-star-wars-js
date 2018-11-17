@@ -1,100 +1,75 @@
 'use strict';
 
-document
-	.querySelector('[data-js="characters-form"]')
-	.addEventListener('submit', function(e) {
-		e.preventDefault();
-		const busca = e.srcElement[0].value;
-		fazRequestGet(urlPessoas, function(conteudo, error) {
-			if (error != null) console.log('ERRO ' + error);
-			else {
-				const retorno = JSON.parse(conteudo);
-				const resultadosFiltrados = retorno.results.filter(
-					obj => obj.name.indexOf(busca) > -1
-				);
-				document.querySelector('[data-js="results"]').textContent = '';
-				if (resultadosFiltrados.length > 0) {
-					resultadosFiltrados.forEach(function(item) {
-						document.querySelector(
-							'[data-js="results"]'
-						).innerHTML += '<p>' + item.name + '</p>';
-					});
-					addEventosNosResultados(resultadosFiltrados);
-				}
-			}
-		});
-	});
+(function() {
+	let filteredResults = [];
 
-/*
-	Função irá adicionar eventos nos resultados para poder mostrar os detalhes de cada personagem
-*/
-function addEventosNosResultados(resultadosFiltrados) {
+	document
+		.querySelector('[data-js="characters-form"]')
+		.addEventListener('submit', function(e) {
+			e.preventDefault();
+			const value = e.srcElement[0].value;
+			get(ENDPOINT_PERSON, function(content, error) {
+				if (error != null) console.log('ERROR -> ' + error);
+				else {
+					const result = JSON.parse(content);
+					filteredResults = result.results.filter(function(obj) {
+						return obj.name.indexOf(value) > -1;
+					});
+
+					const $results = document.querySelector(
+						'[data-js="results"]'
+					);
+					$results.textContent = '';
+
+					if (filteredResults.length > 0) {
+						filteredResults.forEach(function(item) {
+							$results.innerHTML += '<p>' + item.name + '</p>';
+						});
+					}
+				}
+			});
+		});
+
 	document
 		.querySelector('[data-js="results"]')
 		.addEventListener('click', e => {
 			if (e.target && e.target.nodeName === 'P') {
-				const personagem = resultadosFiltrados.find(personagemKey => {
-					return personagemKey.name === e.target.outerText;
+				const character = filteredResults.find(characterKey => {
+					return characterKey.name === e.target.outerText;
 				});
-				montaTabelaDetalhesPersonagem(personagem);
+				createTableCharacter(character);
 			}
 		});
-}
 
-function montaDetalhesPersonagem(personagem) {
-	const blocoDescricaoPersonagem = document.querySelector(
-		'.descricaoPersonagem'
-	);
-	blocoDescricaoPersonagem.innerHTML = '';
-	criaElementosDosDetalhes('span', 'Nome', 'span', personagem.name);
-	criaElementosDosDetalhes(
-		'span',
-		'Data de Nascimento',
-		'span',
-		personagem.birth_year
-	);
-	criaElementosDosDetalhes('span', 'Peso', 'span', personagem.mass);
-	criaElementosDosDetalhes('span', 'Altura', 'span', personagem.height);
+	function createTableCharacter(character) {
+		document.querySelector(
+			'[data-js="table-details-characters"]'
+		).style.display = 'table';
 
-	function criaElementosDosDetalhes(el1, text1, el2, text2) {
-		blocoDescricaoPersonagem.appendChild(
-			addTextInElement(addElement(el1), text1)
+		const table = document.querySelector(
+			'[data-js="table-details-characters"] tbody'
 		);
-		blocoDescricaoPersonagem.appendChild(
-			addTextInElement(addElement(el2), text2)
-		);
-		blocoDescricaoPersonagem.appendChild(addElement('br'));
+		table.innerHTML = '';
+
+		const elementTexts = ['Name', 'Birthday', 'Weight', 'Heigth'];
+		const elementValues = [
+			character.name,
+			character.birth_year,
+			character.mass,
+			character.height
+		];
+
+		elementTexts.forEach((element, index) => {
+			const newTr = table.appendChild(addElement('tr'));
+
+			const th1 = newTr.appendChild(addElement('th'));
+			addTextInElement(th1, index + 1);
+
+			const td2 = newTr.appendChild(addElement('td'));
+			addTextInElement(td2, element);
+
+			const td3 = newTr.appendChild(addElement('td'));
+			addTextInElement(td3, elementValues[index]);
+		});
 	}
-}
-
-function montaTabelaDetalhesPersonagem(personagem) {
-	document.querySelector(
-		'[data-js="table-details-characters"]'
-	).style.display = 'table';
-
-	const tabela = document.querySelector(
-		'[data-js="table-details-characters"] tbody'
-	);
-	tabela.innerHTML = '';
-
-	const textosDosElementos = ['Name', 'Birthday', 'Weight', 'Heigth'];
-	const valorDosElementos = [
-		personagem.name,
-		personagem.birth_year,
-		personagem.mass,
-		personagem.height
-	];
-
-	textosDosElementos.forEach((element, index) => {
-		const newTr = tabela.appendChild(addElement('tr'));
-
-		const th1 = newTr.appendChild(addElement('th'));
-		addTextInElement(th1, index + 1);
-
-		const td2 = newTr.appendChild(addElement('td'));
-		addTextInElement(td2, element);
-
-		const td3 = newTr.appendChild(addElement('td'));
-		addTextInElement(td3, valorDosElementos[index]);
-	});
-}
+})();
