@@ -15,8 +15,9 @@ document
 				document.querySelector('[data-js="results"]').textContent = '';
 				if (resultadosFiltrados.length > 0) {
 					resultadosFiltrados.forEach(function(item) {
-						document.querySelector('[data-js="results"]').innerHTML +=
-							'<p>' + item.name + '</p>';
+						document.querySelector(
+							'[data-js="results"]'
+						).innerHTML += '<p>' + item.name + '</p>';
 					});
 					addEventosNosResultados(resultadosFiltrados);
 				}
@@ -28,14 +29,16 @@ document
 	Função irá adicionar eventos nos resultados para poder mostrar os detalhes de cada personagem
 */
 function addEventosNosResultados(resultadosFiltrados) {
-	document.querySelectorAll('[data-js="results"] p').forEach(p =>
-		p.addEventListener('click', e => {
-			let personagem = resultadosFiltrados.filter(personagemKey => {
-				return personagemKey.name === e.target.outerText;
-			});
-			montaTabelaDetalhesPersonagem(personagem[0]);
-		})
-	);
+	document
+		.querySelector('[data-js="results"]')
+		.addEventListener('click', e => {
+			if (e.target && e.target.nodeName === 'P') {
+				const personagem = resultadosFiltrados.find(personagemKey => {
+					return personagemKey.name === e.target.outerText;
+				});
+				montaTabelaDetalhesPersonagem(personagem);
+			}
+		});
 }
 
 function montaDetalhesPersonagem(personagem) {
@@ -65,9 +68,13 @@ function montaDetalhesPersonagem(personagem) {
 }
 
 function montaTabelaDetalhesPersonagem(personagem) {
-	document.querySelector('[data-js="table-details-characters"]').style.display = 'table';
+	document.querySelector(
+		'[data-js="table-details-characters"]'
+	).style.display = 'table';
 
-	const tabela = document.querySelector('[data-js="table-details-characters"] tbody');
+	const tabela = document.querySelector(
+		'[data-js="table-details-characters"] tbody'
+	);
 	tabela.innerHTML = '';
 
 	const textosDosElementos = ['Name', 'Birthday', 'Weight', 'Heigth'];
@@ -83,7 +90,6 @@ function montaTabelaDetalhesPersonagem(personagem) {
 
 		const th1 = newTr.appendChild(addElement('th'));
 		addTextInElement(th1, index + 1);
-		//th1.innerHTML += "row=1";
 
 		const td2 = newTr.appendChild(addElement('td'));
 		addTextInElement(td2, element);
